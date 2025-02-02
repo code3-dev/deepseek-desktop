@@ -1,7 +1,7 @@
 {
   "name": "deepseek",
   "description": "DeepSeek Desktop Application",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "main": "main.js",
   "bin": "main.js",
   "homepage": "https://deepseekapp.vercel.app",
