@@ -1,0 +1,59 @@
+{
+  "name": "deepseek",
+  "description": "DeepSeek Desktop Application",
+  "version": "1.0.0",
+  "main": "main.js",
+  "bin": "main.js",
+  "homepage": "https://deepseekapp.vercel.app",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux"
+  },
+  "author": {
+    "name": "Hossein Pira",
+    "email": "h3dev.pira@gmail.com"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "electron-store": "^10.0.1",
+    "node-notifier": "^10.0.1"
+  },
+  "devDependencies": {
+    "electron": "^34.0.2",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.deepseek.app",
+    "productName": "DeepSeek",
+    "icon": "assets/icon.png",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "assets/**/*",
+      "preload.js",
+      "main.js"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Chat",
+      "icon": "assets/icon.png",
+      "maintainer": "h3dev.pira@gmail.com"
+    }
+  }
+}
