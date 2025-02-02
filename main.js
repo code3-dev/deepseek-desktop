@@ -32,6 +32,7 @@ function createWindow() {
       nodeIntegration: false,
       contextIsolation: true,
       preload: path.join(__dirname, 'preload.js'),
+      devTools: false
     },
   });
 
@@ -43,17 +44,13 @@ function createWindow() {
     return { action: 'deny' };
   });
 
-  const template = [
+  const menuTemplate = [
     {
       label: 'DeepSeek',
       submenu: [
         {
           label: 'Home',
-          click: () => {
-            if (win) {
-              win.loadURL('https://chat.deepseek.com');
-            }
-          }
+          click: () => win.loadURL('https://chat.deepseek.com')
         },
         { type: 'separator' },
         { role: 'quit' }
@@ -75,7 +72,6 @@ function createWindow() {
       submenu: [
         { role: 'reload' },
         { role: 'forceReload' },
-        { role: 'toggleDevTools' },
         { type: 'separator' },
         { role: 'resetZoom' },
         { role: 'zoomIn' },
@@ -92,8 +88,8 @@ function createWindow() {
           click: () => {
             dialog.showMessageBox(win, {
               type: 'info',
-              title: 'About the DeepSeek',
-              message: `DeepSeek Artificial Intelligence Co., Ltd. (referred to as "DeepSeek" or "深度求索") , founded in 2023, is a Chinese company dedicated to making AGI a reality.\nVersion: 1.5.0`,
+              title: 'About DeepSeek',
+              message: `DeepSeek Artificial Intelligence Co., Ltd. (referred to as "DeepSeek" or "深度求索") , founded in 2023, is a Chinese company dedicated to making AGI a reality.\nVersion: 1.7.0`,
               buttons: ['OK'],
             });
           }
@@ -105,30 +101,36 @@ function createWindow() {
         },
         {
           label: 'Telegram',
-          click: () => {
-            shell.openExternal('https://t.me/h3dev');
-          }
+          click: () => shell.openExternal('https://t.me/h3dev')
         },
         {
           label: 'Instagram',
-          click: () => {
-            shell.openExternal('https://instagram.com/h3dev.pira');
-          }
+          click: () => shell.openExternal('https://instagram.com/h3dev.pira')
         },
         {
           label: 'Email',
-          click: () => {
-            shell.openExternal('mailto:h3dev.pira@gmail.com');
-          }
+          click: () => shell.openExternal('mailto:h3dev.pira@gmail.com')
         }
       ]
     }
   ];
 
-  const menu = Menu.buildFromTemplate(template);
+  const menu = Menu.buildFromTemplate(menuTemplate);
   Menu.setApplicationMenu(menu);
-}
 
+  const contextMenu = Menu.buildFromTemplate([
+    { role: 'cut', label: 'Cut' },
+    { role: 'copy', label: 'Copy' },
+    { role: 'paste', label: 'Paste' },
+    { type: 'separator' },
+    { role: 'selectAll', label: 'Select All' },
+    { role: 'togglefullscreen' }
+  ]);
+
+  win.webContents.on('context-menu', (event, params) => {
+    contextMenu.popup(win, params.x, params.y);
+  });
+}
 
 app.whenReady().then(() => {
   createSplash();
