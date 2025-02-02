@@ -76,7 +76,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Author: Hossein Pira
 - Email: [h3dev.pira@gmail.com](mailto:h3dev.pira@gmail.com)
-- Telegram: [h3dev Telegram](https://t.me/h3dev)
+- Telegram: [@h3dev](https://t.me/h3dev)
 - Instagram: [@h3dev.pira](https://instagram.com/h3dev.pira)
 
 ## Links
