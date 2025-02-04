@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, dialog, shell, ipcMain } = require('electron');
+const { app, BrowserWindow, Menu, dialog, shell, ipcMain, nativeTheme } = require('electron');
 const path = require('path');
 
 let win;
@@ -139,6 +139,8 @@ app.whenReady().then(() => {
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
+
+  nativeTheme.themeSource = 'dark';
 });
 
 ipcMain.on('open-external', (event, url) => {

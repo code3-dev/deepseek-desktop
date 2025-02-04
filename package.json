@@ -46,7 +46,7 @@
         "AppImage",
         "deb"
       ],
-      "category": "Chat",
+      "category": "Network",
       "icon": "assets/icon.png",
       "maintainer": "h3dev.pira@gmail.com"
     }
