@@ -89,7 +89,7 @@ function createWindow() {
             dialog.showMessageBox(win, {
               type: 'info',
               title: 'About DeepSeek',
-              message: `DeepSeek Artificial Intelligence Co., Ltd. (referred to as "DeepSeek" or "深度求索") , founded in 2023, is a Chinese company dedicated to making AGI a reality.\nVersion: 1.7.0`,
+              message: `DeepSeek Artificial Intelligence Co., Ltd. (referred to as "DeepSeek" or "深度求索") , founded in 2023, is a Chinese company dedicated to making AGI a reality.\nVersion: 1.8.0`,
               buttons: ['OK'],
             });
           }
